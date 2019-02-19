@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/Forms';
+import { FlashMessagesModule } from 'angular2-flash-messages';
 
+ 
 import {environment} from '../environments/environment';
 import {AngularFireModule} from 'angularfire2';
 //import {AngularFireModule} from '@angular/fire';
@@ -22,6 +25,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ClientDetailsComponent } from './components/client-details/client-details.component';
 import { ClientsComponent } from './components/clients/clients.component';
 
+import { from } from 'rxjs';
+
 
 @NgModule({
   declarations: [
@@ -40,10 +45,12 @@ import { ClientsComponent } from './components/clients/clients.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    FlashMessagesModule.forRoot(),
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase, 'clientpanel'),
     AngularFirestoreModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
   ],
   providers: [{ provide: FirestoreSettingsToken, useValue: {} }],
   bootstrap: [AppComponent]
