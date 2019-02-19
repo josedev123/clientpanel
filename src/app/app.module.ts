@@ -3,11 +3,11 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/Forms';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 
- 
+
 import {environment} from '../environments/environment';
 import {AngularFireModule} from 'angularfire2';
-//import {AngularFireModule} from '@angular/fire';
-//import { AngularFirestoreModule} from '@angular/fire/firestore';
+  // import {AngularFireModule} from '@angular/fire';
+  // import { AngularFirestoreModule} from '@angular/fire/firestore';
 import {AngularFirestoreModule, FirestoreSettingsToken } from 'angularfire2/firestore';
 import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 
