@@ -28,6 +28,7 @@ import { ClientsComponent } from './components/clients/clients.component';
 import { from } from 'rxjs';
 import { ClientService } from './services/client.service';
 import { AuthService } from './services/auth.service';
+import { SettingsService } from './services/settings.service';
 
 
 @NgModule({
@@ -54,7 +55,7 @@ import { AuthService } from './services/auth.service';
     AngularFirestoreModule,
     AngularFireAuthModule,
   ],
-  providers: [ClientService, AuthService, { provide: FirestoreSettingsToken, useValue: {} }],
+  providers: [ClientService, AuthService, SettingsService, { provide: FirestoreSettingsToken, useValue: {} }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
