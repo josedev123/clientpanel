@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Client } from '../../models/Client';
+import { Client } from '../../models/clientmodel';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { ClientService } from '../../services/client.service';
 import { Router } from '@angular/router';
@@ -19,9 +19,9 @@ export class AddClientComponent implements OnInit {
     phone: '',
     balance: 0,
 
-  }
+  };
 
-disableBalanceOnAdd: boolean = true;
+disableBalanceOnAdd = true;
 @ViewChild('clientForm') form: any;
 
 
@@ -29,8 +29,7 @@ disableBalanceOnAdd: boolean = true;
     private flashMessage: FlashMessagesService,
     private clientService: ClientService,
     private router: Router
-    )
-   { }
+    )   {}
 
   ngOnInit() {
   }
@@ -40,7 +39,7 @@ disableBalanceOnAdd: boolean = true;
       value.balance = 0;
     }
 
-    if(!valid) {
+    if (!valid) {
       // show error
       this.flashMessage.show('Please fill out the from correctly', {
         cssClass: 'alert-danger', timeout: 4000

@@ -17,7 +17,7 @@ export class EditClientComponent implements OnInit {
     email: '',
     phone: '',
     balance: 0
-  }
+  };
 
   disableBalanceOnEdit: true;
 
@@ -36,7 +36,7 @@ export class EditClientComponent implements OnInit {
   }
 
 onSubmit({value, valid}: {value: Client, valid: boolean}) {
-  if(!valid) {
+  if (!valid) {
     this.flashMessage.show('Please fill out the form correctly', {
       cssClass: 'alert-danger', timeout: 4000
     });
@@ -48,7 +48,7 @@ onSubmit({value, valid}: {value: Client, valid: boolean}) {
     this.flashMessage.show('Client updated', {
       cssClass: 'alert-success', timeout: 4000
     });
-    this.router.navigate(['/client/'+this.id]);
+    this.router.navigate(['/client/' + this.id]);
   }
 
 }
