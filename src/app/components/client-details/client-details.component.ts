@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ClientService } from 'src/app/services/client.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
-import { Client } from '../../models/client';
+import { Client } from '../../models/clientmodel';
 
 
 
@@ -37,6 +37,24 @@ showBalanceUpdateInput = false;
       }
       this.client = client;
     });
+  }
+
+  updateBalance() {
+    this.clientService.updateClient(this.client);
+    this.flashMessage.show('Balance Updated',{ 
+      cssClass: 'alert-success', timeout: 4000
+    });
+
+  }
+
+  onDeleteClick() {
+    if(confirm('Are you sure?')) {
+      this.clientService.deleteClient(this.client);
+      this.flashMessage.show('Client removed', {
+        cssClass: 'alert-success', timeout: 4000
+      });
+      this.router.navigate(['/']);
+    }
   }
 
 }

@@ -7,7 +7,7 @@
     <a class="btn btn-dark" routerLink="/client/edit/{{id}}">
       Edit
     </a>
-    <button (click)="OnDeleteClick()" class="btn btn-danger">Delete</button>
+    <button (click)="onDeleteClick()" class="btn btn-danger">Delete</button>
   </div>
 </div>
 </div>
@@ -20,7 +20,8 @@
 
 <div class="card-body">
   <div class="row">
-  <div class="col-md-12 col-sm-6">
+    <div class="col-md-4 col-sm-6"></div>
+  <div class="col-md-8 col-sm-6">
     <h3 class="pull-right">Balance
       <span [class.text-danger]='hasBalance'
       [class.text-success]="!hasBalance"
@@ -32,6 +33,19 @@
     </a></small>
     </h3>
 
+    <div class="clearfix">
+      <form *ngIf="showBalanceUpdateInput" (ngSubmit)="updateBalance()">
+
+<div class="input-group">
+  <input type="text" name="balance" class="form-control" [(ngModel)]="client.balance">
+  <span class="input-group-btn">
+    <button class="btn btn-primary" type="submit">Update</button>
+  </span>
+</div>
+
+      </form>
+    </div> 
+
   </div>
 </div>
 
@@ -39,7 +53,7 @@
 <hr>
 <ul class="list-group">
   <li class="list-group-item">Contact Email: {{ client.email }}</li>
-  <li class="list-group-item">Contact Phone: {{ client.email }}</li>
+  <li class="list-group-item">Contact Phone: {{ client.phone }}</li>
 </ul>
 </div>
 </div>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ClientService } from '../../services/client.service';
-import { Client } from '../../models/client';
+import { Client } from '../../models/clientmodel';
 
 @Component({
   selector: 'app-clients',
@@ -23,7 +23,7 @@ export class ClientsComponent implements OnInit {
 
   getTotalOwed() {
     this.totalOwed = this.clients.reduce((total, client) => {
-      return total + client.balance;
+      return total + parseFloat(client.balance.toString());
     }, 0);
   }
 
